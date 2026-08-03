@@ -1,0 +1,16 @@
+import java.util.HashMap;
+class Solution {
+    public String solution(String[] participant, String[] completion) {
+        HashMap<String,Integer> map = new HashMap<>();
+        for(String name : participant){
+        map.put(name, map.getOrDefault(name, 0) + 1);
+}
+        for(int i=0;i<completion.length;i++){
+            map.put(completion[i], map.get(completion[i]) - 1);
+        }
+        for(String key : map.keySet()){
+            if(map.get(key)>0) return key;
+    }
+        return "";
+}
+}
